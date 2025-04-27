@@ -6,8 +6,9 @@ import UserSignup from './pages/UserSignup'
 function App() {
   return (
     <Router>
-      <div>
+      <div className="app-container">
         <nav>
+          <Link to="/">Home</Link>
           <Link to="/signup/admin">Admin Signup</Link>
           <Link to="/signup/user">User Signup</Link>
         </nav>
@@ -15,20 +16,25 @@ function App() {
         <Routes>
           <Route path="/signup/admin" element={<AdminSignup />} />
           <Route path="/signup/user" element={<UserSignup />} />
-          <Route path="/" element={
-            <div>
-              <h1>Welcome to CyberSecurity Dashboard</h1>
-              <p>Please choose your signup type:</p>
-              <div>
-                <Link to="/signup/admin">Sign up as Admin</Link>
-                <Link to="/signup/user">Sign up as User</Link>
-              </div>
-            </div>
-          } />
+          <Route path="/" element={<HomePage />} />
         </Routes>
       </div>
     </Router>
   )
+}
+
+function HomePage() {
+  return (
+    <div className="home-container">
+      <h1>CyberSecurity Dashboard</h1>
+      <p>Welcome to the cybersecurity management platform. Please choose your signup type:</p>
+      
+      <div className="home-links">
+        <Link to="/signup/admin">Sign up as Admin</Link>
+        <Link to="/signup/user">Sign up as User</Link>
+      </div>
+    </div>
+  );
 }
 
 export default App

@@ -6,34 +6,89 @@ function UserSignup() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [companyId, setCompanyId] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
-  async function handleUserSignup() {
-    const { data, error } = await supabase.auth.signUp({
-      email,
-      password,
-    });
+  async function handleUserSignup(e) {
+    e.preventDefault();
+    setLoading(true);
+    setError('');
+    
+    try {
+      // Step 1: Sign up with Supabase Auth
+      const { data, error: authError } = await supabase.auth.signUp({
+        email,
+        password,
+      });
 
-    if (error) {
-      console.error('Signup error:', error.message);
-      return;
+      if (authError) {
+        throw new Error(`Authentication error: ${authError.message}`);
+      }
+
+      console.log("Supabase auth successful, user ID:", data.user.id);
+      
+      // Step 2: Call the backend to request joining a company
+      // Using the proxy configuration
+      const response = await axios.post('/api/signup/user', {
+        company_id: companyId,
+        user_id: data.user.id,
+      });
+      
+      console.log("Backend response:", response.data);
+      alert('Signup successful! Wait for admin approval.');
+    } catch (err) {
+      console.error('Signup error:', err);
+      setError(err.message || 'An error occurred during signup');
+    } finally {
+      setLoading(false);
     }
-
-    // Call your FastAPI backend to request joining a company
-    await axios.post('/api/signup/user', {
-      company_id: companyId,
-      user_id: data.user.id,
-    });
-
-    alert('Signup successful! Wait for admin approval.');
   }
 
   return (
-    <div>
+    <div className="signup-container">
       <h1>User Signup</h1>
-      <input placeholder="Company ID" onChange={(e) => setCompanyId(e.target.value)} />
-      <input placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
-      <input placeholder="Password" type="password" onChange={(e) => setPassword(e.target.value)} />
-      <button onClick={handleUserSignup}>Sign Up as User</button>
+      {error && <div className="error-message">{error}</div>}
+      
+      <form onSubmit={handleUserSignup}>
+        <div className="form-group">
+          <label htmlFor="companyId">Company ID</label>
+          <input 
+            id="companyId"
+            value={companyId}
+            onChange={(e) => setCompanyId(e.target.value)}
+            placeholder="Enter your company ID" 
+            required
+          />
+        </div>
+        
+        <div className="form-group">
+          <label htmlFor="email">Email</label>
+          <input 
+            id="email"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Enter your email" 
+            required
+          />
+        </div>
+        
+        <div className="form-group">
+          <label htmlFor="password">Password</label>
+          <input 
+            id="password"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Create a password" 
+            required
+          />
+        </div>
+        
+        <button type="submit" disabled={loading}>
+          {loading ? 'Signing up...' : 'Sign Up as User'}
+        </button>
+      </form>
     </div>
   );
 }
