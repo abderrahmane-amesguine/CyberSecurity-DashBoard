@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Body
 from pydantic import BaseModel
-from dependencies import supabase
+from dependencies.supabase import supabase
 import uuid
 
 router = APIRouter()
