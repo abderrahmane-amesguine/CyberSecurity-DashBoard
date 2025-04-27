@@ -31,7 +31,7 @@ function AdminSignup() {
       // Using the proxy configuration - notice we're not using VITE_BACKEND_URL anymore
       const response = await axios.post('/api/signup/admin', {
         company_name: companyName,
-        user_id: data.user.id,
+        admin_email: email,
       });
       
       console.log("Backend response:", response.data);

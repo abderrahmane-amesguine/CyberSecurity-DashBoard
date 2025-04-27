@@ -29,16 +29,37 @@ function UserSignup() {
       
       // Step 2: Call the backend to request joining a company
       // Using the proxy configuration
-      const response = await axios.post('/api/signup/user', {
+      // Make sure we're sending the data in the format the backend expects
+      const requestData = {
         company_id: companyId,
-        user_id: data.user.id,
-      });
+        user_email: email
+      };
+      
+      console.log("Sending request to backend:", requestData);
+      
+      const response = await axios.post('/api/signup/user', requestData);
       
       console.log("Backend response:", response.data);
       alert('Signup successful! Wait for admin approval.');
     } catch (err) {
       console.error('Signup error:', err);
-      setError(err.message || 'An error occurred during signup');
+      
+      // More detailed error information
+      if (err.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        console.error("Response data:", err.response.data);
+        console.error("Response status:", err.response.status);
+        console.error("Response headers:", err.response.headers);
+        setError(`Server error: ${err.response.status} - ${JSON.stringify(err.response.data)}`);
+      } else if (err.request) {
+        // The request was made but no response was received
+        console.error("No response received:", err.request);
+        setError("No response from server. Please try again later.");
+      } else {
+        // Something happened in setting up the request that triggered an error
+        setError(err.message || 'An error occurred during signup');
+      }
     } finally {
       setLoading(false);
     }
