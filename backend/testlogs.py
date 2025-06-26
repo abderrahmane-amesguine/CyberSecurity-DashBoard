@@ -39,7 +39,7 @@ def process_log_file(template_miner, log_file):
                         continue
         
         print(f"✅ Successfully processed {processed_count} log lines")
-        print(f"🎯 Found {len(template_miner.drain.clusters)} unique templates")
+        print(f" Found {len(template_miner.drain.clusters)} unique templates")
         
         return processed_count
         
@@ -105,7 +105,7 @@ def show_template_summary(template_miner):
     print(f"\n📊 Template Summary:")
     print(f"Total unique templates: {len(clusters)}")
     
-    print(f"\n🔥 Top 10 Most Frequent Templates:")
+    print(f"\n Top 10 Most Frequent Templates:")
     for i, cluster in enumerate(sorted_clusters[:10], 1):
         print(f"{i:2d}. ({cluster.size:4d}x) {cluster.get_template()}")
 
@@ -113,7 +113,7 @@ def show_template_summary(template_miner):
 if __name__ == "__main__":
     log_file = 'cisco_asa_test.log'
     
-    print("🚀 Starting Drain3 log analysis...")
+    print(" Starting Drain3 log analysis...")
     
     # Step 1: Process the log file (THIS WAS MISSING!)
     lines_processed = process_log_file(template_miner, log_file)
