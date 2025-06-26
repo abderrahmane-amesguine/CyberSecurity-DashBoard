@@ -2,6 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 from dependencies import supabase
 from dependencies.auth import get_current_user
+from fastapi.responses import JSONResponse
 
 router = APIRouter()
 
@@ -30,7 +31,7 @@ async def get_pending_users(user = Depends(get_current_user)):
     # Now fetch pending users for the company
     pending_users = supabase.table("pending_users").select("*").eq("company_id", company_id).execute()
     
-    return pending_users.data
+    return JSONResponse(content=pending_users.data)
 
 
 @router.post("/approve-user")
@@ -103,3 +104,27 @@ async def reject_pending_user(request: UserRequest, user=Depends(get_current_use
         raise HTTPException(status_code=500, detail=f"Failed to reject user: {delete_result.error}")
 
     return {"message": f"User {request.pending_user_email} rejected and removed successfully."}
+
+# endpoint to get all users in the company
+@router.get("/all-users")
+async def get_all_users(user=Depends(get_current_user)):
+    """
+    Get all users in the admin's company (SECURE).
+    """
+
+    # Fetch the user record
+    user_record = supabase.table("users").select("*").eq("email", user["email"]).single().execute()
+
+    if not user_record.data:
+        raise HTTPException(status_code=404, detail="User not found.")
+    
+    # Check if user is admin
+    if user_record.data["role"] != "admin":
+        raise HTTPException(status_code=403, detail="Only admins can view all users.")
+    
+    company_id = user_record.data["company_id"]
+    
+    # Now fetch all users for the company
+    all_users = supabase.table("users").select("*").eq("company_id", company_id).execute()
+    
+    return JSONResponse(content=all_users.data)

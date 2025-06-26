@@ -1,0 +1,6 @@
+Cluster_ID,Template,Frequency,Tokens
+1,Jun 18 <*> FIREWALL01 %ASA-2-106017: Deny IP due to Land Attack from <*> to <*>,8,Jun | 18 | <*> | FIREWALL01 | %ASA-2-106017: | Deny | IP | due | to | Land | Attack | from | <*> | to | <*>
+2,Jun 18 <*> FIREWALL01 %ASA-4-401004: Shunned packet: <*> = <*> on interface outside,11,Jun | 18 | <*> | FIREWALL01 | %ASA-4-401004: | Shunned | packet: | <*> | = | <*> | on | interface | outside
+3,Jun 18 <*> FIREWALL01 %ASA-6-302014: Teardown TCP connection <*> for <*> to <*> duration <*> bytes <*>,12,Jun | 18 | <*> | FIREWALL01 | %ASA-6-302014: | Teardown | TCP | connection | <*> | for | <*> | to | <*> | duration | <*> | bytes | <*>
+4,Jun 18 <*> FIREWALL01 %ASA-2-106001: Inbound TCP connection denied from <*> to <*> flags SYN on interface <*>,9,Jun | 18 | <*> | FIREWALL01 | %ASA-2-106001: | Inbound | TCP | connection | denied | from | <*> | to | <*> | flags | SYN | on | interface | <*>
+5,Jun 18 <*> FIREWALL01 %ASA-6-302013: Built outbound TCP connection <*> for <*> <*> to <*> <*>,10,Jun | 18 | <*> | FIREWALL01 | %ASA-6-302013: | Built | outbound | TCP | connection | <*> | for | <*> | <*> | to | <*> | <*>

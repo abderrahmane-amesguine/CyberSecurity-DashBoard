@@ -1,0 +1,121 @@
+{
+  "analysis_timestamp": "2025-06-25T16:45:01.000797",
+  "source_file": "cisco_asa_test.log",
+  "total_clusters": 5,
+  "clusters": [
+    {
+      "cluster_id": 1,
+      "template": "Jun 18 <*> FIREWALL01 %ASA-2-106017: Deny IP due to Land Attack from <*> to <*>",
+      "size": 8,
+      "tokens": [
+        "Jun",
+        "18",
+        "<*>",
+        "FIREWALL01",
+        "%ASA-2-106017:",
+        "Deny",
+        "IP",
+        "due",
+        "to",
+        "Land",
+        "Attack",
+        "from",
+        "<*>",
+        "to",
+        "<*>"
+      ]
+    },
+    {
+      "cluster_id": 2,
+      "template": "Jun 18 <*> FIREWALL01 %ASA-4-401004: Shunned packet: <*> = <*> on interface outside",
+      "size": 11,
+      "tokens": [
+        "Jun",
+        "18",
+        "<*>",
+        "FIREWALL01",
+        "%ASA-4-401004:",
+        "Shunned",
+        "packet:",
+        "<*>",
+        "=",
+        "<*>",
+        "on",
+        "interface",
+        "outside"
+      ]
+    },
+    {
+      "cluster_id": 3,
+      "template": "Jun 18 <*> FIREWALL01 %ASA-6-302014: Teardown TCP connection <*> for <*> to <*> duration <*> bytes <*>",
+      "size": 12,
+      "tokens": [
+        "Jun",
+        "18",
+        "<*>",
+        "FIREWALL01",
+        "%ASA-6-302014:",
+        "Teardown",
+        "TCP",
+        "connection",
+        "<*>",
+        "for",
+        "<*>",
+        "to",
+        "<*>",
+        "duration",
+        "<*>",
+        "bytes",
+        "<*>"
+      ]
+    },
+    {
+      "cluster_id": 4,
+      "template": "Jun 18 <*> FIREWALL01 %ASA-2-106001: Inbound TCP connection denied from <*> to <*> flags SYN on interface <*>",
+      "size": 9,
+      "tokens": [
+        "Jun",
+        "18",
+        "<*>",
+        "FIREWALL01",
+        "%ASA-2-106001:",
+        "Inbound",
+        "TCP",
+        "connection",
+        "denied",
+        "from",
+        "<*>",
+        "to",
+        "<*>",
+        "flags",
+        "SYN",
+        "on",
+        "interface",
+        "<*>"
+      ]
+    },
+    {
+      "cluster_id": 5,
+      "template": "Jun 18 <*> FIREWALL01 %ASA-6-302013: Built outbound TCP connection <*> for <*> <*> to <*> <*>",
+      "size": 10,
+      "tokens": [
+        "Jun",
+        "18",
+        "<*>",
+        "FIREWALL01",
+        "%ASA-6-302013:",
+        "Built",
+        "outbound",
+        "TCP",
+        "connection",
+        "<*>",
+        "for",
+        "<*>",
+        "<*>",
+        "to",
+        "<*>",
+        "<*>"
+      ]
+    }
+  ]
+}

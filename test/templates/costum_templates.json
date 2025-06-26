@@ -1,0 +1,56 @@
+[
+  {
+    "cluster_id": 8,
+    "size": 30,
+    "template": "Jun 18 <*> 10.0.0.1 date 2025-06-18 time <*> devname FG-PRIMARY devid FG90D3Z15800000 logid 0000000013 type traffic subtype forward level notice vd root eventtime <*> srcip <*> srcport <*> srcintf port1 srcintfrole lan dstip <*> dstport <*> dstintf port2 dstintfrole wan poluuid 4a8cd2a4-5eb9-51e7-e157-b2d00cb2e680 sessionid <*> proto 6 action <*> policyid <*> policytype policy service <*> <*> dstcountry <*> srccountry <*> trandisp snat duration <*> sentbyte <*> rcvdbyte <*> sentpkt <*> rcvdpkt <*>",
+    "log_ids": []
+  },
+  {
+    "cluster_id": 6,
+    "size": 23,
+    "template": "Kasperky syslog pattern: FROM_KSC_HOST: 10.0.0.10 KES_VERSION: KES <*> TIMESTAMP: <*> INFECTED_HOST: <*> STRUCTURED-DATA: event 23668 p1 <*> p2 C: Users <*> <*> <*> p5 <*> p7 <*> p8 60 p9 engine :1 method :3 blacklist :false cloud_sb :false md5 : <*> et GNRL_EV_VIRUS_FOUND tdn File Threat Protection etdn Malicious object detected hdn <*> hip <*> gn WORKSTATIONS engine 1 method 3 kscfqdn ksc.domain.local Result description: Detected r nType: Virus r nName: <*> r nUser: <*> Initiator r nObject: C: Users <*> <*> <*> r nReason: Expert analysis r nDatabase release date: 06 18 2025 <*> <*> r nSHA256: <*> r nMD5: <*>",
+    "log_ids": []
+  },
+  {
+    "cluster_id": 9,
+    "size": 20,
+    "template": "Jun 18 <*> 10.0.0.1 date 2025-06-18 time <*> devname FG-PRIMARY devid FG90D3Z15800000 logid 0211008192 type utm subtype virus eventtype infected level warning vd root eventtime <*> msg File is infected. action blocked service HTTP sessionid <*> srcip <*> dstip <*> srcport <*> dstport 80 srcintf port2 srcintfrole wan dstintf port1 dstintfrole lan policyid <*> proto 6 direction incoming filename malicious.exe quarskip File-was-not-quarantined. virus <*> dtype Virus ref http: www.fortinet.com ve vn <*> virusid <*> profile default crscore <*> crlevel <*>",
+    "log_ids": []
+  },
+  {
+    "cluster_id": 3,
+    "size": 12,
+    "template": "Jun 18 <*> FIREWALL01 ASA-6-302014: Teardown TCP connection <*> for <*> <*> to <*> <*> duration <*> bytes <*>",
+    "log_ids": []
+  },
+  {
+    "cluster_id": 2,
+    "size": 11,
+    "template": "Jun 18 <*> FIREWALL01 ASA-4-401004: Shunned packet: <*> <*> on interface outside",
+    "log_ids": []
+  },
+  {
+    "cluster_id": 5,
+    "size": 10,
+    "template": "Jun 18 <*> FIREWALL01 ASA-6-302013: Built outbound TCP connection <*> for <*> <*> <*> <*> to <*> <*> <*> <*>",
+    "log_ids": []
+  },
+  {
+    "cluster_id": 4,
+    "size": 9,
+    "template": "Jun 18 <*> FIREWALL01 ASA-2-106001: Inbound TCP connection denied from <*> <*> to <*> <*> flags SYN on interface <*>",
+    "log_ids": []
+  },
+  {
+    "cluster_id": 1,
+    "size": 8,
+    "template": "Jun 18 <*> FIREWALL01 ASA-2-106017: Deny IP due to Land Attack from <*> to <*>",
+    "log_ids": []
+  },
+  {
+    "cluster_id": 7,
+    "size": 7,
+    "template": "Kasperky syslog pattern: FROM_KSC_HOST: 10.0.0.10 KES_VERSION: KES <*> TIMESTAMP: <*> INFECTED_HOST: <*> STRUCTURED-DATA: event 23668 p1 <*> p2 C: Users <*> <*> <*> p5 <*> p7 DOMAIN <*> p8 60 p9 engine :1 method :3 blacklist :false cloud_sb :false md5 : <*> et GNRL_EV_VIRUS_FOUND tdn File Threat Protection etdn Malicious object detected hdn <*> hip <*> gn WORKSTATIONS engine 1 method 3 kscfqdn ksc.domain.local Result description: Detected r nType: Virus r nName: <*> r nUser: DOMAIN <*> Initiator r nObject: C: Users <*> <*> <*> r nReason: Expert analysis r nDatabase release date: 06 18 2025 <*> PM r nSHA256: <*> r nMD5: <*>",
+    "log_ids": []
+  }
+]

@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Request
-from routes import signup, admin
+from routes import signup, admin, login
 from fastapi.middleware.cors import CORSMiddleware
 from middleware.debug_middleware import logging_middleware
 
@@ -24,6 +24,9 @@ app.include_router(signup.router, prefix="/api/signup")
 
 # Include the admin router
 app.include_router(admin.router, prefix="/api/admin")
+
+# Include the login router
+app.include_router(login.router, prefix="/api/login")
 
 # Add a test route to verify the API is working
 @app.get("/api/test")
